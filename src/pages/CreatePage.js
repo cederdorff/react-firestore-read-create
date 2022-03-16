@@ -42,15 +42,15 @@ export default function CreatePage() {
             <h1>Create Page</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Title:
+                    Title
                     <input type="text" value={title} placeholder="Type a title" onChange={e => setTitle(e.target.value)} />
                 </label>
                 <label>
-                    Body:
+                    Body
                     <input type="text" value={body} placeholder="Type a body text" onChange={e => setBody(e.target.value)} />
                 </label>
                 <label>
-                    Image:
+                    Image
                     <input type="file" className="file-input" accept="image/*" onChange={handleImageChange} />
                     <img className="image-preview" src={image} alt="Choose" />
                 </label>
