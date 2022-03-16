@@ -224,7 +224,7 @@ input {
     max-width: 350px;
     height: 200px;
     object-fit: cover;
-    margin: auto;
+    margin: 1em auto;
     display: block;
     cursor: pointer;
 }
