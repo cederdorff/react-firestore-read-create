@@ -10,7 +10,7 @@ function App() {
             <Nav />
             <Routes>
                 <Route path="/" element={<PostsPage />} />
-                <Route path="/cr eate" element={<CreatePage />} />
+                <Route path="/create" element={<CreatePage />} />
                 <Route path="/update" element={<UpdatePage />} />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
