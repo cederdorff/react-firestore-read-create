@@ -1,17 +1,22 @@
 import { addDoc, serverTimestamp } from "@firebase/firestore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { postsRef } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import imgPlaceholder from "../assets/img/img-placeholder.jpg";
 
-export default function CreatePage() {
+export default function CreatePage({ showLoader }) {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [image, setImage] = useState(imgPlaceholder);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        showLoader(false);
+    }, [showLoader]);
+
     async function handleSubmit(event) {
         event.preventDefault();
+        showLoader(true);
         const newPost = {
             title: title,
             body: body,
@@ -21,6 +26,8 @@ export default function CreatePage() {
         };
 
         await addDoc(postsRef, newPost);
+
+        showLoader(false);
         navigate("/");
     }
 

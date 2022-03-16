@@ -3,7 +3,7 @@ import { onSnapshot, query, orderBy } from "firebase/firestore";
 import { postsRef } from "../firebase-config";
 import PostCard from "../components/PostCard";
 
-export default function HomePage() {
+export default function HomePage({ showLoader }) {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -13,6 +13,7 @@ export default function HomePage() {
                 return { ...doc.data(), id: doc.id };
             });
             setPosts(postsData);
+            showLoader(false);
         });
         return () => unsubscribe();
     }, []);
