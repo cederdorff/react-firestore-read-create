@@ -16,7 +16,7 @@ export default function HomePage({ showLoader }) {
             showLoader(false);
         });
         return () => unsubscribe();
-    }, []);
+    }, [showLoader]);
 
     return (
         <section className="page">
